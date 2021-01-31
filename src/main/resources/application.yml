@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+
+  jetty:
+    accesslog:
+      enabled: true
+      retention-period: 10
+    threads:
+      min: 50
+      max: 500
+      idle-timeout: 20000
+    connection-idle-timeout: 20000

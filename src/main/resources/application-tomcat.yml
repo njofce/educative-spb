@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:9080}
+  error:
+    whitelabel:
+      enabled: false
+    include-exception: true
+    include-stacktrace: always
+
+  tomcat:
+    accept-count: 200
+    accesslog:
+      enabled: true
+      locale: ${SERVER_LOCALE:en_US}
+    
+    threads:
+      min-spare: 100
+      max: 500
+    max-http-form-post-size: 5MB
+    connection-timeout: ${DURATION_TIMEOUT:20000}
+
+  compression:
+    enabled: true
