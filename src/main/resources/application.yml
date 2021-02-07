@@ -5,3 +5,8 @@ server:
     accesslog:
       enabled: true
       retention-period: ${LOG_RETENTION_PERIOD:10}
+
+aws:
+  accessKey: key_1
+  privateKey: key_private
+  bucket: bucket_name
