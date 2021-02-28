@@ -1,5 +1,8 @@
 package com.educative.serverplayground.utils;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
@@ -27,6 +30,10 @@ public class JacksonConfiguration {
   public ObjectMapper objectMapper() {
     JavaTimeModule timeModule = new JavaTimeModule();
     timeModule.addSerializer(CUSTOM_DATE_SERIALIZER);
-    return new ObjectMapper().registerModule(timeModule);
+    return new ObjectMapper()
+        .configure(MapperFeature.DEFAULT_VIEW_INCLUSION, false)
+        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        .setSerializationInclusion(Include.NON_NULL)
+        .registerModule(timeModule);
   }
 }
