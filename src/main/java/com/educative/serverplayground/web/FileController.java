@@ -1,6 +1,7 @@
 package com.educative.serverplayground.web;
 
 import com.educative.serverplayground.models.FileMetadata;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +24,10 @@ public class FileController {
 
   @GetMapping("/search")
   public List<FileMetadata> searchFiles(@RequestParam(name = "name") String name) {
-    return List.of(
-        new FileMetadata("id-1", name + "-random1", 100, "contents 1".getBytes()),
-        new FileMetadata("id-2", name + "-random2", 200, "contents 2".getBytes()));
+    List<FileMetadata> list = new ArrayList<>();
+    list.add(new FileMetadata("id-1", name + "-random1", 100, "contents 1".getBytes()));
+    list.add(new FileMetadata("id-2", name + "-random2", 200, "contents 2".getBytes()));
+    return list;
   }
 
   @PostMapping("/save")

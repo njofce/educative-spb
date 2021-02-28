@@ -9,6 +9,6 @@ public class HomeController {
 
   @GetMapping("/home")
   public String home(HttpServletRequest request) {
-    return "Request made from: " + request.getRemoteAddr();
+    return "Hello: Request made from: " + request.getRemoteAddr();
   }
 }
