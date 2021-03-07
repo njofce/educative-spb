@@ -9,11 +9,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import ua_parser.Client;
 import ua_parser.Parser;
 
 @Component
+@Order(1)
 public class ClientDetailsFilter implements Filter {
 
   private static final Logger logger = LoggerFactory.getLogger(ClientDetailsFilter.class);
